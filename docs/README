@@ -1,0 +1,34 @@
+README
+------
+
+pylibre -- Python Bindings for libre
+
+
+Copyright 2011 - 2011 Creytiv.com
+Distributed under BSD License
+
+
+This is Python Bindings for libre, a generic library for real-time
+communications with Async I/O support, a complete SIP Stack and other
+protocols like DNS, SDP, RTP/RTCP, STUN, TURN, ICE.
+
+
+The goal of this project is to build a complete set of Python Bindings
+for libre, with user and communitity driven input for API design. An important
+goal is to make the highlevel API very user-friendly and simple to use.
+
+
+
+Building the module:
+
+
+    $ python setup.py build
+
+
+
+
+References:
+
+You can download libre source code from:
+
+    http://www.creytiv.com/
