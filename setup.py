@@ -5,7 +5,8 @@ module1 = Extension('libre',
                     include_dirs = ['/usr/local/include/re'],
                     libraries = ['re'],
                     library_dirs = ['/usr/local/lib'],
-                    sources = ['src/init.c',
+                    sources = ['src/error.c',
+                               'src/init.c',
                                'src/main.c',
                                'src/sip.c'])
 

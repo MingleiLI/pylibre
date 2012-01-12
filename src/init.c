@@ -35,5 +35,6 @@ PyMODINIT_FUNC initlibre(void)
 
 	m = librepython_initmain();
 
+	librepython_initerror(m);
 	librepython_initsip(m);
 }
