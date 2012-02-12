@@ -8,6 +8,7 @@
  */
 extern PyObject *librepython_error;
 PyObject *librepython_set_error(PyObject *exc, int error, const char *str);
+PyObject *librepython_set_error_pl(PyObject *exc, struct pl *pl);
 void librepython_initerror(PyObject *m);
 
 PyObject *librepython_initmain(void);
