@@ -13,3 +13,4 @@ void librepython_initerror(PyObject *m);
 
 PyObject *librepython_initmain(void);
 void librepython_initsip(PyObject *m);
+void librepython_inituri(PyObject *m);

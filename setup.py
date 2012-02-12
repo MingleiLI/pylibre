@@ -8,7 +8,8 @@ module1 = Extension('libre',
                     sources = ['src/error.c',
                                'src/init.c',
                                'src/main.c',
-                               'src/sip.c'])
+                               'src/sip.c',
+                               'src/uri.c'])
 
 setup (name = 'libre',
        version = '0.1',
