@@ -38,7 +38,7 @@ static PyObject *py_uri_encode(PyObject *self, PyObject *args)
 	{
 		return NULL;
 	}
-	if (port > 0xFFFF) {
+	if (port > 0xffff) {
 		return PyErr_Format(PyExc_ValueError,
 			            "port outside of allowed range: %u",
 				    port);
@@ -371,7 +371,7 @@ static PyObject *py_uri_cmp(PyObject *self, PyObject *args)
 	{
 		return NULL;
 	}
-	if (lport > 0xFFFF || rport > 0xFFFF) {
+	if (lport > 0xffff || rport > 0xffff) {
 		return PyErr_Format(PyExc_ValueError,
 			            "port outside of allowed range");
 	}
@@ -430,7 +430,7 @@ static PyObject *py_uri_user_unescape(PyObject *self, PyObject *args)
 }
 
 
-static const char py_uri_password_escape_doc[] = 
+static const char py_uri_password_escape_doc[] =
 	"Return an escaped version of the password URI part.\n";
 
 static PyObject *py_uri_password_escape(PyObject *self, PyObject *args)
@@ -440,7 +440,7 @@ static PyObject *py_uri_password_escape(PyObject *self, PyObject *args)
 }
 
 
-static const char py_uri_password_unescape_doc[] = 
+static const char py_uri_password_unescape_doc[] =
 	"Return an unescaped version of the password URI part.\n";
 
 static PyObject *py_uri_password_unescape(PyObject *self, PyObject *args)
@@ -451,7 +451,7 @@ static PyObject *py_uri_password_unescape(PyObject *self, PyObject *args)
 }
 
 
-static const char py_uri_param_escape_doc[] = 
+static const char py_uri_param_escape_doc[] =
 	"Return an escaped version of a URI parameter value.\n";
 
 static PyObject *py_uri_param_escape(PyObject *self, PyObject *args)
@@ -461,7 +461,7 @@ static PyObject *py_uri_param_escape(PyObject *self, PyObject *args)
 }
 
 
-static const char py_uri_param_unescape_doc[] = 
+static const char py_uri_param_unescape_doc[] =
 	"Return an unescaped version of a URI parameter value.\n";
 
 static PyObject *py_uri_param_unescape(PyObject *self, PyObject *args)
@@ -471,7 +471,7 @@ static PyObject *py_uri_param_unescape(PyObject *self, PyObject *args)
 }
 
 
-static const char py_uri_header_escape_doc[] = 
+static const char py_uri_header_escape_doc[] =
 	"Return an escaped version of one URI header name/value.\n";
 
 static PyObject *py_uri_header_escape(PyObject *self, PyObject *args)
@@ -481,7 +481,7 @@ static PyObject *py_uri_header_escape(PyObject *self, PyObject *args)
 }
 
 
-static const char py_uri_header_unescape_doc[] = 
+static const char py_uri_header_unescape_doc[] =
 	"Return an unescaped version of one URI header name/value.\n";
 
 static PyObject *py_uri_header_unescape(PyObject *self, PyObject *args)
