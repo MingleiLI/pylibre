@@ -215,7 +215,7 @@ static PyTypeObject SipType = {
 };
 
 
-void librepython_initsip(PyObject *m)
+void pylibre_initsip(PyObject *m)
 {
 	SipType.tp_new = PyType_GenericNew;
 	if (PyType_Ready(&SipType) < 0)

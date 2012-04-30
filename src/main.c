@@ -40,7 +40,7 @@ static PyMethodDef LibreMethods[] = {
 };
 
 
-PyObject *librepython_initmain(void)
+PyObject *pylibre_initmain(void)
 {
 	return Py_InitModule3("libre", LibreMethods, "Main module");
 }

@@ -46,7 +46,7 @@ static PyObject *py_uri_encode(PyObject *self, PyObject *args)
 	uri.port = (uint16_t) port;
 	err = re_sdprintf(&uri_str, "%H", uri_encode, &uri);
 	if (err != 0) {
-		return librepython_set_error(librepython_error, err, NULL);
+		return pylibre_set_error(pylibre_error, err, NULL);
 	}
 	res = Py_BuildValue("s", uri_str);
 	mem_deref(uri_str);
@@ -75,7 +75,7 @@ static PyObject *py_uri_decode(PyObject *self, PyObject *arg)
 	}
 	err = uri_decode(&uri, &uri_str);
 	if (err != 0) {
-		return librepython_set_error(librepython_error, err, NULL);
+		return pylibre_set_error(pylibre_error, err, NULL);
 	}
 	return Py_BuildValue("(s#z#z#z#iIz#z#)",
 		   	     uri.scheme.p, (Py_ssize_t) uri.scheme.l,
@@ -113,10 +113,10 @@ static PyObject *py_uri_param_get(PyObject *self, PyObject *args)
 	}
 	err = uri_param_get(&param, &pname, &pvalue);
 	if (err == ENOENT) {
-		return librepython_set_error_pl(PyExc_KeyError, &pname);
+		return pylibre_set_error_pl(PyExc_KeyError, &pname);
 	}
 	else if (err) {
-		return librepython_set_error(librepython_error, err, NULL);
+		return pylibre_set_error(pylibre_error, err, NULL);
 	}
 	return Py_BuildValue("z#", pvalue.p, (Py_ssize_t) pvalue.l);
 }
@@ -170,7 +170,7 @@ static PyObject *py_uri_params_apply(PyObject *self, PyObject *args)
 		return NULL;
 	}
 	else if (err) {
-		return librepython_set_error(librepython_error, err, NULL);
+		return pylibre_set_error(pylibre_error, err, NULL);
 	}
 	Py_RETURN_NONE;
 }
@@ -229,7 +229,7 @@ static PyObject *py_uri_params_list(PyObject *self, PyObject *args)
 			return NULL;
 		}
 		else {
-			return librepython_set_error(librepython_error, err,
+			return pylibre_set_error(pylibre_error, err,
 						     NULL);
 		}
 	}
@@ -261,10 +261,10 @@ static PyObject *py_uri_header_get(PyObject *self, PyObject *args)
 	}
 	err = uri_param_get(&headers, &name, &value);
 	if (err == ENOENT) {
-		return librepython_set_error_pl(PyExc_KeyError, &name);
+		return pylibre_set_error_pl(PyExc_KeyError, &name);
 	}
 	else if (err) {
-		return librepython_set_error(librepython_error, err, NULL);
+		return pylibre_set_error(pylibre_error, err, NULL);
 	}
 	return Py_BuildValue("z#", value.p, (Py_ssize_t) value.l);
 }
@@ -299,7 +299,7 @@ static PyObject *py_uri_headers_apply(PyObject *self, PyObject *args)
 		return NULL;
 	}
 	else if (err) {
-		return librepython_set_error(librepython_error, err, NULL);
+		return pylibre_set_error(pylibre_error, err, NULL);
 	}
 	Py_RETURN_NONE;
 }
@@ -332,8 +332,7 @@ static PyObject *py_uri_headers_list(PyObject *self, PyObject *args)
 			return NULL;
 		}
 		else {
-			return librepython_set_error(librepython_error, err,
-						     NULL);
+			return pylibre_set_error(pylibre_error, err, NULL);
 		}
 	}
 	return list;
@@ -402,7 +401,7 @@ static PyObject *apply_printf_to_str(PyObject *args, re_printf_h *h)
 	}
 	err = re_sdprintf(&res_str, "%H", h, &pl);
 	if (err != 0) {
-		return librepython_set_error(librepython_error, err, NULL);
+		return pylibre_set_error(pylibre_error, err, NULL);
 	}
 	res = Py_BuildValue("s", res_str);
 	mem_deref(res_str);
@@ -530,7 +529,7 @@ static PyMethodDef URIMethods[] = {
 };
 
 
-void librepython_inituri(PyObject *m)
+void pylibre_inituri(PyObject *m)
 {
 	PyObject *mod;
 

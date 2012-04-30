@@ -4,13 +4,14 @@
  * Copyright (C) 2010 - 2012 Creytiv.com
  */
 
-/* exception.c
- */
-extern PyObject *librepython_error;
-PyObject *librepython_set_error(PyObject *exc, int error, const char *str);
-PyObject *librepython_set_error_pl(PyObject *exc, struct pl *pl);
-void librepython_initerror(PyObject *m);
 
-PyObject *librepython_initmain(void);
-void librepython_initsip(PyObject *m);
-void librepython_inituri(PyObject *m);
+extern PyObject *pylibre_error;
+
+PyObject *pylibre_set_error(PyObject *exc, int error, const char *str);
+PyObject *pylibre_set_error_pl(PyObject *exc, const struct pl *pl);
+void pylibre_initerror(PyObject *m);
+
+
+PyObject *pylibre_initmain(void);
+void pylibre_initsip(PyObject *m);
+void pylibre_inituri(PyObject *m);
